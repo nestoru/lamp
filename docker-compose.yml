@@ -1,0 +1,7 @@
+lamp:
+  image: 'lamp:0.1' 
+  restart: always
+  container_name: lamp 
+  ports:
+    - 80:80
+    - 443:443 
