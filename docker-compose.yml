@@ -1,7 +1,22 @@
-lamp:
-  image: 'lamp:0.1' 
+lamp-php-apache:
+  image: 'nestoru/lamp-php-apache:0.1' 
   restart: always
-  container_name: lamp 
+  container_name: lamp-php-apache 
   ports:
     - 80:80
-    - 443:443 
+    - 443:443
+  links:
+    - lamp-mysql
+  volumes:
+    - "${PHP_APP_DIR}:/var/www/html"
+
+lamp-mysql:
+  image: 'mysql:5.7'
+  restart: always
+  container_name: lamp-mysql
+  ports:
+    - 3306:3306
+  environment:
+    - MYSQL_RANDOM_ROOT_PASSWORD=yes
+  volumes:
+    - /opt/data/mysql:/var/lib/mysql 
