@@ -19,6 +19,6 @@ lamp-mysql:
   ports:
     - 3306:3306
   environment:
-    - MYSQL_RANDOM_ROOT_PASSWORD=yes
+    - MYSQL_ROOT_PASSWORD=changeit! 
   volumes:
     - /opt/data/mysql:/var/lib/mysql 
